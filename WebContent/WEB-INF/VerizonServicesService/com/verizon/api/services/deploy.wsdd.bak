@@ -1,0 +1,173 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from VerizonServicesService WSDL service -->
+
+  <service name="VerizonServices" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://services.api.verizon.com"/>
+      <parameter name="wsdlServiceElement" value="VerizonServicesService"/>
+      <parameter name="schemaQualified" value="http://services.api.verizon.com,http://beans.api.verizon.com"/>
+      <parameter name="wsdlServicePort" value="VerizonServices"/>
+      <parameter name="className" value="com.verizon.api.services.VerizonServicesSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="VerizonServices"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="retreiveCreditApplication" qname="operNS:retreiveCreditApplication" xmlns:operNS="http://services.api.verizon.com" returnQName="retNS:retreiveCreditApplicationReturn" xmlns:retNS="http://services.api.verizon.com" returnType="rtns:VzwServicesResponse" xmlns:rtns="http://beans.api.verizon.com" soapAction="" >
+        <parameter qname="pns:request" xmlns:pns="http://services.api.verizon.com" type="tns:VzwServicesRequest" xmlns:tns="http://beans.api.verizon.com"/>
+      </operation>
+      <parameter name="allowedMethods" value="retreiveCreditApplication"/>
+
+      <typeMapping
+        xmlns:ns="http://beans.api.verizon.com"
+        qname="ns:CreditReadOrderResponse"
+        type="java:com.verizon.api.beans.CreditReadOrderResponse"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://beans.api.verizon.com"
+        qname="ns:ContactDetail"
+        type="java:com.verizon.api.beans.ContactDetail"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://beans.api.verizon.com"
+        qname="ns:Response"
+        type="java:com.verizon.api.beans.Response"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://beans.api.verizon.com"
+        qname="ns:IndvCustomer"
+        type="java:com.verizon.api.beans.IndvCustomer"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://beans.api.verizon.com"
+        qname="ns:CreditOrderDetails"
+        type="java:com.verizon.api.beans.CreditOrderDetails"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://beans.api.verizon.com"
+        qname="ns:ServiceHeader"
+        type="java:com.verizon.api.beans.ServiceHeader"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://beans.api.verizon.com"
+        qname="ns:VzwServicesRequest"
+        type="java:com.verizon.api.beans.VzwServicesRequest"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://beans.api.verizon.com"
+        qname="ns:CustomerName"
+        type="java:com.verizon.api.beans.CustomerName"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://beans.api.verizon.com"
+        qname="ns:ServiceBodyRequest"
+        type="java:com.verizon.api.beans.ServiceBodyRequest"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://beans.api.verizon.com"
+        qname="ns:VzwServicesResponse"
+        type="java:com.verizon.api.beans.VzwServicesResponse"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://beans.api.verizon.com"
+        qname="ns:NewOrPrevCustomer"
+        type="java:com.verizon.api.beans.NewOrPrevCustomer"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://beans.api.verizon.com"
+        qname="ns:OrderKeyInfo"
+        type="java:com.verizon.api.beans.OrderKeyInfo"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://beans.api.verizon.com"
+        qname="ns:IndvCustCredential"
+        type="java:com.verizon.api.beans.IndvCustCredential"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://beans.api.verizon.com"
+        qname="ns:Address"
+        type="java:com.verizon.api.beans.Address"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://beans.api.verizon.com"
+        qname="ns:CreditReadOrderRequest"
+        type="java:com.verizon.api.beans.CreditReadOrderRequest"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://beans.api.verizon.com"
+        qname="ns:ServiceBodyResponse"
+        type="java:com.verizon.api.beans.ServiceBodyResponse"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://beans.api.verizon.com"
+        qname="ns:Request"
+        type="java:com.verizon.api.beans.Request"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://beans.api.verizon.com"
+        qname="ns:EmployerDetails"
+        type="java:com.verizon.api.beans.EmployerDetails"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+  </service>
+</deployment>

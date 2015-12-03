@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://services.api.verizon.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://services.api.verizon.com" xmlns:intf="http://services.api.verizon.com" xmlns:tns1="http://beans.api.verizon.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://services.api.verizon.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://beans.api.verizon.com"/>
+   <element name="retreiveCreditApplication">
+    <complexType>
+     <sequence>
+      <element name="request" type="tns1:VzwServicesRequest"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="retreiveCreditApplicationResponse">
+    <complexType>
+     <sequence>
+      <element name="retreiveCreditApplicationReturn" type="tns1:VzwServicesResponse"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+  <schema elementFormDefault="qualified" targetNamespace="http://beans.api.verizon.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <complexType name="Request">
+    <sequence>
+     <element name="creditApplicationNum" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="CreditReadOrderRequest">
+    <sequence>
+     <element name="request" nillable="true" type="tns1:Request"/>
+    </sequence>
+   </complexType>
+   <complexType name="ServiceBodyRequest">
+    <sequence>
+     <element name="creditReadOrder" nillable="true" type="tns1:CreditReadOrderRequest"/>
+    </sequence>
+   </complexType>
+   <complexType name="OrderKeyInfo">
+    <sequence>
+     <element name="billingSystem" nillable="true" type="xsd:string"/>
+     <element name="clusterInfo" nillable="true" type="xsd:string"/>
+     <element name="creditApplicationNum" nillable="true" type="xsd:string"/>
+     <element name="location" nillable="true" type="xsd:string"/>
+     <element name="orderNum" nillable="true" type="xsd:string"/>
+     <element name="outletId" nillable="true" type="xsd:string"/>
+     <element name="salesForceId" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="ServiceHeader">
+    <sequence>
+     <element name="clientAddlInfo" nillable="true" type="xsd:string"/>
+     <element name="clientAppName" nillable="true" type="xsd:string"/>
+     <element name="orderKeyInfo" nillable="true" type="tns1:OrderKeyInfo"/>
+     <element name="password" nillable="true" type="xsd:string"/>
+     <element name="serviceAction" nillable="true" type="xsd:string"/>
+     <element name="serviceAreaZip" nillable="true" type="xsd:string"/>
+     <element name="serviceName" nillable="true" type="xsd:string"/>
+     <element name="sessionID" nillable="true" type="xsd:string"/>
+     <element name="storeID" nillable="true" type="xsd:string"/>
+     <element name="timeStamp" nillable="true" type="xsd:string"/>
+     <element name="transactionId" nillable="true" type="xsd:string"/>
+     <element name="userName" nillable="true" type="xsd:string"/>
+     <element name="xmlVersion" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="VzwServicesRequest">
+    <sequence>
+     <element name="serviceBody" nillable="true" type="tns1:ServiceBodyRequest"/>
+     <element name="serviceHeader" nillable="true" type="tns1:ServiceHeader"/>
+    </sequence>
+   </complexType>
+   <complexType name="Address">
+    <sequence>
+     <element name="addressLine2" nillable="true" type="xsd:string"/>
+     <element name="aptNum" nillable="true" type="xsd:string"/>
+     <element name="city" nillable="true" type="xsd:string"/>
+     <element name="country" nillable="true" type="xsd:string"/>
+     <element name="dir" nillable="true" type="xsd:string"/>
+     <element name="pobox" nillable="true" type="xsd:string"/>
+     <element name="state" nillable="true" type="xsd:string"/>
+     <element name="streetName" nillable="true" type="xsd:string"/>
+     <element name="streetNum" nillable="true" type="xsd:string"/>
+     <element name="type" nillable="true" type="xsd:string"/>
+     <element name="validated" type="xsd:boolean"/>
+     <element name="zipCode" nillable="true" type="xsd:string"/>
+     <element name="zipCode4" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="CustomerName">
+    <sequence>
+     <element name="firstName" nillable="true" type="xsd:string"/>
+     <element name="lastName" nillable="true" type="xsd:string"/>
+     <element name="midInitials" nillable="true" type="xsd:string"/>
+     <element name="suffix" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="EmployerDetails">
+    <sequence>
+     <element name="employerCity" nillable="true" type="xsd:string"/>
+     <element name="employerName" nillable="true" type="xsd:string"/>
+     <element name="employerState" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="ContactDetail">
+    <sequence>
+     <element name="homePhone" nillable="true" type="xsd:string"/>
+     <element name="workPhone" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="IndvCustCredential">
+    <sequence>
+     <element name="dateOfBirth" nillable="true" type="xsd:string"/>
+     <element name="drvLic" nillable="true" type="xsd:string"/>
+     <element name="drvLicState" nillable="true" type="xsd:string"/>
+     <element name="ssn" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="NewOrPrevCustomer">
+    <sequence>
+     <element name="contactDetail" nillable="true" type="tns1:ContactDetail"/>
+     <element name="indvCustCredential" nillable="true" type="tns1:IndvCustCredential"/>
+    </sequence>
+   </complexType>
+   <complexType name="IndvCustomer">
+    <sequence>
+     <element name="address" nillable="true" type="tns1:Address"/>
+     <element name="billLanguage" nillable="true" type="xsd:string"/>
+     <element name="custName" nillable="true" type="tns1:CustomerName"/>
+     <element name="emailId" nillable="true" type="xsd:string"/>
+     <element name="employerDetails" nillable="true" type="tns1:EmployerDetails"/>
+     <element name="newOrPrevCustomer" nillable="true" type="tns1:NewOrPrevCustomer"/>
+    </sequence>
+   </complexType>
+   <complexType name="CreditOrderDetails">
+    <sequence>
+     <element name="bussOrIndvCustomer" nillable="true" type="xsd:string"/>
+     <element name="creditApprovalStatus" nillable="true" type="xsd:string"/>
+     <element name="creditStatusReason" nillable="true" type="xsd:string"/>
+     <element name="customerType" nillable="true" type="xsd:string"/>
+     <element name="edgeIndicator" nillable="true" type="xsd:string"/>
+     <element name="familyShare" nillable="true" type="xsd:string"/>
+     <element name="fraudLevel" nillable="true" type="xsd:string"/>
+     <element name="globalFeatureIndicator" nillable="true" type="xsd:string"/>
+     <element name="indvCustomer" nillable="true" type="tns1:IndvCustomer"/>
+     <element name="installClass" nillable="true" type="xsd:string"/>
+     <element name="message" nillable="true" type="xsd:string"/>
+     <element name="numOfLines" nillable="true" type="xsd:string"/>
+     <element name="receivableControlled" type="xsd:boolean"/>
+     <element name="saleType" nillable="true" type="xsd:string"/>
+     <element name="securityDepositAmount" nillable="true" type="xsd:string"/>
+     <element name="serviceClass" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="Response">
+    <sequence>
+     <element name="creditOrderDetails" nillable="true" type="tns1:CreditOrderDetails"/>
+    </sequence>
+   </complexType>
+   <complexType name="CreditReadOrderResponse">
+    <sequence>
+     <element name="response" nillable="true" type="tns1:Response"/>
+    </sequence>
+   </complexType>
+   <complexType name="ServiceBodyResponse">
+    <sequence>
+     <element name="creditReadOrder" nillable="true" type="tns1:CreditReadOrderResponse"/>
+    </sequence>
+   </complexType>
+   <complexType name="VzwServicesResponse">
+    <sequence>
+     <element name="serviceBody" nillable="true" type="tns1:ServiceBodyResponse"/>
+     <element name="serviceHeader" nillable="true" type="tns1:ServiceHeader"/>
+    </sequence>
+   </complexType>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="retreiveCreditApplicationResponse">
+
+      <wsdl:part element="impl:retreiveCreditApplicationResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="retreiveCreditApplicationRequest">
+
+      <wsdl:part element="impl:retreiveCreditApplication" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="VerizonServices">
+
+      <wsdl:operation name="retreiveCreditApplication">
+
+         <wsdl:input message="impl:retreiveCreditApplicationRequest" name="retreiveCreditApplicationRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:retreiveCreditApplicationResponse" name="retreiveCreditApplicationResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="VerizonServicesSoapBinding" type="impl:VerizonServices">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="retreiveCreditApplication">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="retreiveCreditApplicationRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="retreiveCreditApplicationResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="VerizonServicesService">
+
+      <wsdl:port binding="impl:VerizonServicesSoapBinding" name="VerizonServices">
+
+         <wsdlsoap:address location="http://172.26.114.177:8090/TestWsdl_VerizonApi/services/VerizonServices"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
